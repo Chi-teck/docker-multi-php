@@ -26,6 +26,8 @@ RUN apt update && for php_version in 7.3 7.4 8.0 8.1 8.2 8.3; do \
       php$php_version-pgsql; \
     done;
 
+RUN phpdismod xdebug
+
 # Not all extensions are compatible with PHP 8.4 yet.
 RUN apt install -y \
     php8.4 \
