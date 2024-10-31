@@ -10,6 +10,7 @@ RUN apt update && apt install -y lsb-release wget && \
 RUN apt update && for php_version in 7.3 7.4 8.0 8.1 8.2 8.3; do \
       apt install -y \
       php$php_version \
+      php$php_version-fpm \
       php$php_version-apcu \
       php$php_version-bcmath \
       php$php_version-cgi \
@@ -31,6 +32,7 @@ RUN phpdismod xdebug
 # Not all extensions are compatible with PHP 8.4 yet.
 RUN apt install -y \
     php8.4 \
+    php8.4-fpm \
     php8.4-bcmath \
     php8.4-cgi \
     php8.4-curl \
